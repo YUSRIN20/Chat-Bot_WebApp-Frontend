@@ -1,9 +1,9 @@
 import './index.css'
-import TestComponent from './Components/TestComponent';
 import './App.css'
 import WelcomePageComponent from './Components/WelcomePageComponent';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ParentComponet from './Components/ParentComponet';
+import AvatarGenerateComponent from './Components/AvatarGenerateComponent';
 const App = () => {
 
   
@@ -13,7 +13,7 @@ const App = () => {
        <Routes>
         <Route path='/' element={<WelcomePageComponent />} />
         <Route path='/text-chatbot'element={<ParentComponet />}/>
-        <Route path='video-chatbot' element={<TestComponent />}/>
+        <Route path='video-chatbot' element={<AvatarGenerateComponent />}/>
        </Routes>
     </BrowserRouter>
   </div>

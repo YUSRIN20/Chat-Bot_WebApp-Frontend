@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Button } from './ui/button'; // Ensure this import matches your actual file structure
+import { Button } from './ui/button'; 
 import { MicrophoneIcon } from '@heroicons/react/24/outline';
 import '../Style/AvatarBot.css'
 
-const ChatBotComponent: React.FC = () => {
+const AvatarGenerateComponent: React.FC = () => {
     const [response, setResponse] = useState<string>('');
     const [userMessage, setUserMessage] = useState<string>('');
     const [videoUrl, setVideoUrl] = useState<string>('');
     const [videoId, setVideoId] = useState<string | null>(null);
     const [listening, setListening] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(false); // New loading state
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [showFetchButton, setFetchButton] = useState<boolean>(false);
 
@@ -196,4 +196,4 @@ const ChatBotComponent: React.FC = () => {
     );
 };
 
-export default ChatBotComponent;
+export default AvatarGenerateComponent;

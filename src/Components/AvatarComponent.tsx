@@ -10,7 +10,8 @@ const AvatarComponent: React.FC = () => {
     useEffect(() => {
         const fetchAvatars = async () => {
             try {
-                const response = await axios.get('http://localhost:5500/api/avatars');
+                // const response = await axios.get('http://localhost:5500/api/avatars');
+                const response = await axios.get('https://chat-bot-webapp-backend.onrender.com/api/avatars');
                 setAvatars(response.data.data.avatars[19].preview_image_url)
                 console.log(avatarUrl);
 

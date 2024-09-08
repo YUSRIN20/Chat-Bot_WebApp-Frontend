@@ -28,7 +28,8 @@ const ChatBotComponent: React.FC = () => {
 
             // Send user message to backend
             try {
-                const res = await axios.post('http://localhost:5500/api/generate-content', {
+                const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate-content', {
+                // const res = await axios.post('http://localhost:5500/api/generate-content', {
                     prompt: spokenText
                 });
                 setResponse(res.data.response);
