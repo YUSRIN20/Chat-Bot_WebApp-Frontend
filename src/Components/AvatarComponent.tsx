@@ -1,8 +1,6 @@
-// Example using fetch in React
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import '../Style/avatar.css'
-import ChatBotComponent from './ChatBotComponent';
 
 
 const AvatarComponent: React.FC = () => {

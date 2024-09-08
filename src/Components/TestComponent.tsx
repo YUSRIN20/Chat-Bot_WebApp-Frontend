@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from './ui/button'; // Ensure this import matches your actual file structure
 import { MicrophoneIcon } from '@heroicons/react/24/outline';

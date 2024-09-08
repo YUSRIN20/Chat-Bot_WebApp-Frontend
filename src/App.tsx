@@ -1,6 +1,4 @@
 import './index.css'
-import AvatarComponent from './Components/AvatarComponent';
-import ChatBotComponent from './Components/ChatBotComponent';
 import TestComponent from './Components/TestComponent';
 import './App.css'
 import WelcomePageComponent from './Components/WelcomePageComponent';
