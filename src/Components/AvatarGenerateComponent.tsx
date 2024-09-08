@@ -54,8 +54,8 @@ const AvatarGenerateComponent: React.FC = () => {
                 setError('An error occurred while generating the response.');
             } finally {
                 setListening(false);
-                  timeout(videoId)
-                  console.log("===",videoId);
+                //   timeout(videoId)
+                //   console.log("===",videoId);
             }
         };
 
