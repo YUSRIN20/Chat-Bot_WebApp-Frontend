@@ -1,0 +1,29 @@
+#avatar {
+    width: 150px;
+    height: 150px;
+    border: 4px solid #4f46e5; 
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+#avatar:hover {
+    transform: scale(1.1);
+    border-color: #9333ea; 
+}
+#avatar.speaking {
+    
+    animation: speakingAnimation 1s infinite;
+}
+
+@keyframes speakingAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    #avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
