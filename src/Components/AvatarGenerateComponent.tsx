@@ -65,30 +65,30 @@ const AvatarGenerateComponent: React.FC = () => {
             setListening(false);
         };
     };
-    const timeout = async (videoId: string | null) => {
-        setTimeout(() => {
-           getVideoData(videoId)
-            console.log("time==", videoId); 
-            setVideoUrl(''); // for removing previous Video url
-            setVideoId('')
-        }, 5000);
-    }
-    const getVideoData = async (videoId: string | null) => {
-        setVideoUrl('')
-        if (videoId) {
-            try {
-                const res = await axios.get(`http://localhost:5500/api/video-status/${videoId}`);
-                if (res.data && res.data.data.status === 'completed') {
-                    setVideoUrl(res.data.data.video_url);
-                }
-            } catch (error) {
-                console.error('Error checking video status:', error);
-                setError('Failed to check video status.');
-            }
-        } else {
-            setError('No video ID available to check status.');
-        }
-    }
+    // const timeout = async (videoId: string | null) => {
+    //     setTimeout(() => {
+    //        getVideoData(videoId)
+    //         console.log("time==", videoId); 
+    //         setVideoUrl(''); // for removing previous Video url
+    //         setVideoId('')
+    //     }, 5000);
+    // }
+    // const getVideoData = async (videoId: string | null) => {
+    //     setVideoUrl('')
+    //     if (videoId) {
+    //         try {
+    //             const res = await axios.get(`http://localhost:5500/api/video-status/${videoId}`);
+    //             if (res.data && res.data.data.status === 'completed') {
+    //                 setVideoUrl(res.data.data.video_url);
+    //             }
+    //         } catch (error) {
+    //             console.error('Error checking video status:', error);
+    //             setError('Failed to check video status.');
+    //         }
+    //     } else {
+    //         setError('No video ID available to check status.');
+    //     }
+    // }
     const fetchVideoUrl = async () => {
         setLoading(true); // Start loading when fetching video URL
         setTimeout(async () => {
