@@ -33,7 +33,8 @@ const AvatarGenerateComponent: React.FC = () => {
             const spokenText = event.results[0][0].transcript;
             setUserMessage(spokenText);
             try {
-                const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
+                const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate', { prompt: spokenText });
+                // const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
 
                 if (res.data && res.data.response) {
                     setResponse(res.data.response);
@@ -94,7 +95,8 @@ const AvatarGenerateComponent: React.FC = () => {
         setTimeout(async () => {
             if (videoId) {
                 try {
-                    const statusRes = await axios.get(`http://localhost:5500/api/video-status/${videoId}`);
+                    const statusRes = await axios.get(`https://chat-bot-webapp-backend.onrender.com/api/video-status/${videoId}`);
+                    // const statusRes = await axios.get(`http://localhost:5500/api/video-status/${videoId}`);
                     if (statusRes.data && statusRes.data.data.status === 'completed') {
                         setVideoUrl(statusRes.data.data.video_url);
                         setFetchButton(false);
