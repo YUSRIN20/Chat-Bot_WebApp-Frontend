@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Button } from './ui/button'; 
 import { MicrophoneIcon } from '@heroicons/react/24/outline';
 import '../Style/AvatarBot.css'
@@ -33,8 +33,8 @@ const AvatarGenerateComponent: React.FC = () => {
             const spokenText = event.results[0][0].transcript;
             setUserMessage(spokenText);
             try {
-                const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate', { prompt: spokenText });
-                // const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
+                // const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate', { prompt: spokenText });
+                const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
 
                 if (res.data && res.data.response) {
                     setResponse(res.data.response);
@@ -51,8 +51,21 @@ const AvatarGenerateComponent: React.FC = () => {
                 }
 
             } catch (error) {
-                console.error('Error generating response:', error);
-                setError('An error occurred while generating the response.');
+
+                    console.error('Error generating response:', error);
+                
+                    // Check its Axios Error
+                    if (error instanceof AxiosError && error.response) {
+                        setError(error.response.data.message);
+                
+                        // Check if the specific error message is related to the avatar generation limit
+                        if (error.response.data.status === 429) {
+                            setError('Avatar generation limit reached. Please try again tomorrow.');
+                        }
+                    } else {
+                        setError('Internal Server Error');
+                    }
+                
             } finally {
                 setListening(false);
                 //   timeout(videoId)
@@ -105,7 +118,7 @@ const AvatarGenerateComponent: React.FC = () => {
                         setError(null)
                     } else if (statusRes.data.data.status !== 'completed') {
                         console.log('Video is still processing');
-                        setError('Video is still processing,click get video button for another try!')
+                        setError(`video is still processing. Please click the 'Get Video' button to try again.!`)
                     } else {
                         setError('No video URL received from the server.');
                     }
