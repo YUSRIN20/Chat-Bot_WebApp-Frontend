@@ -33,8 +33,8 @@ const AvatarGenerateComponent: React.FC = () => {
             const spokenText = event.results[0][0].transcript;
             setUserMessage(spokenText);
             try {
-                // const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate', { prompt: spokenText });
-                const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
+                const res = await axios.post('https://chat-bot-webapp-backend.onrender.com/api/generate', { prompt: spokenText });
+                // const res = await axios.post('http://localhost:5500/api/generate', { prompt: spokenText });
 
                 if (res.data && res.data.response) {
                     setResponse(res.data.response);
