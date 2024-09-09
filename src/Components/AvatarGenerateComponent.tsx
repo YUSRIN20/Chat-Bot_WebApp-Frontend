@@ -92,6 +92,7 @@ const AvatarGenerateComponent: React.FC = () => {
     // }
     const fetchVideoUrl = async () => {
         setLoading(true); // Start loading when fetching video URL
+        setError(null)
         setTimeout(async () => {
             if (videoId) {
                 try {
@@ -101,10 +102,10 @@ const AvatarGenerateComponent: React.FC = () => {
                         setVideoUrl(statusRes.data.data.video_url);
                         setFetchButton(false);
                         setLoading(false); // Stop loading when video URL is fetched
+                        setError(null)
                     } else if (statusRes.data.data.status !== 'completed') {
                         console.log('Video is still processing');
                         setError('Video is still processing,click get video button for another try!')
-
                     } else {
                         setError('No video URL received from the server.');
                     }
