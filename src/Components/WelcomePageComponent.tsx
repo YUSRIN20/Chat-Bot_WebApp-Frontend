@@ -24,7 +24,7 @@ const WelcomePageComponent: React.FC = () => {
 
                 <div className="flex flex-col md:flex-row justify-center gap-10 mb-8">
                     {/* Chatbot with Avatar */}
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center w-full md:w-1/2">
+                    <div className="flex flex-col justify-around bg-gray-100 p-6 rounded-lg shadow-md text-center w-full md:w-1/2">
                         <h2 className="text-2xl font-semibold mb-4">Text-based Chatbot with Avatar</h2>
                         <p className="text-md mb-4">
                             Our text-based chatbot provides responses in real-time with a unique avatar to make interactions more engaging. Simply ask your question, and get informative responses with a personalized touch.
@@ -39,7 +39,7 @@ const WelcomePageComponent: React.FC = () => {
                     </div>
 
                     {/* Video Avatar Chatbot */}
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center w-full md:w-1/2">
+                    <div className="flex flex-col justify-around bg-gray-100 p-6 rounded-lg shadow-md text-center w-full md:w-1/2">
                         <h2 className="text-2xl font-semibold mb-4">Video Avatar Chatbot</h2>
                         <p className="text-md mb-4">
                             Want to see your chatbot come to life in a video? Our video avatar chatbot generates a video response based on your query, making the interaction more dynamic and lively!
