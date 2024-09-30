@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { Button } from './ui/button'; 
 import { MicrophoneIcon } from '@heroicons/react/24/outline';
 import '../Style/AvatarBot.css'
+import { useNavigate } from 'react-router-dom';
 
 const AvatarGenerateComponent: React.FC = () => {
     const [response, setResponse] = useState<string>('');
@@ -134,8 +135,8 @@ const AvatarGenerateComponent: React.FC = () => {
                 setLoading(false);
             }
         }, 120 *1000);
-    };
-
+    }
+    const navigate = useNavigate()
 
     return (
         <div className="flex flex-col items-center mt-8 p-6 bg-gray-100 shadow-md rounded-lg max-w-lg mx-auto">
@@ -208,6 +209,18 @@ const AvatarGenerateComponent: React.FC = () => {
                     <p><strong>Error:</strong> {error}</p>
                 </div>
             )}
+             <div className='mt-5 w-48 flex justify-between'>
+                    <button
+                    onClick={()=>navigate('/')}
+                    className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-90' 
+                    >Back</button>
+                    <button
+                    onClick={()=>navigate('/text-chatbot')}
+                    className='bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-90'
+                    >
+                       ChatBot
+                    </button>
+                </div>
         </div>
     );
 };

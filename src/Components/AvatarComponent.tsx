@@ -12,8 +12,8 @@ const AvatarComponent: React.FC = () => {
             try {
                 // const response = await axios.get('http://localhost:5500/api/avatars');
                 const response = await axios.get('https://chat-bot-webapp-backend.onrender.com/api/avatars');
-                setAvatars(response.data.data.avatars[19].preview_image_url)
-                console.log(avatarUrl);
+                setAvatars(response.data.data.avatars[20].preview_image_url)
+                // console.log(avatarUrl);
 
             } catch (error) {
                 console.error('Error fetching avatars:', error);
@@ -25,8 +25,7 @@ const AvatarComponent: React.FC = () => {
         fetchAvatars();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
-
+    if (loading) return  <div className="spinner"></div>;
     return (
         <div>
         <img

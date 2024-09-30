@@ -13,7 +13,7 @@ const App = () => {
        <Routes>
         <Route path='/' element={<WelcomePageComponent />} />
         <Route path='/text-chatbot'element={<ParentComponet />}/>
-        <Route path='video-chatbot' element={<AvatarGenerateComponent />}/>
+        <Route path='/video-chatbot' element={<AvatarGenerateComponent />}/>
        </Routes>
     </BrowserRouter>
   </div>
